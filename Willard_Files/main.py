@@ -3,6 +3,7 @@ import BChain
 import time
 import Book
 import hashlib
+import RequestSystem
 
 
 def main():
@@ -38,6 +39,15 @@ def main():
 
     # Tested against an online SHA256 Generator
     # print(hashlib.sha256('Willard'.encode('utf-8')).hexdigest())
+
+    requestInterface = RequestSystem.RequestSystem()
+    requestInterface.addBook(book1.bookISBNHashed(), book1)
+    requestInterface.getAmountofBooks()
+   
+   # Requesting a Book
+    aBook = requestInterface.requestBookInfo('978-0446310789')
+    aBook.getBookInformation()
+
 
 
 main()
