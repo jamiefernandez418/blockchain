@@ -32,9 +32,13 @@ class Book:
         print('Book ISBN:', self.__bookISBN)
         print('Book UID:', self.__bookUID)
 
-    # Returnsthe Genre
+    # Returns the Genre
     def getGenre(self):
         print(self.__bookGenre)
+
+    # Returns the ISBN
+    def getISBN(self):
+        print(self.__bookISBN)
 
     # Return the Book's BlockChain Transaction History
     def getBookBlockChain(self):
