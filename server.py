@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import bookshelf, Book
 app = Flask(__name__)
 
@@ -36,3 +36,10 @@ def hello_world():
         #print(book.getISBN())
         print("Hello terminal test")
         return render_template('index.html', books= books)
+
+#Takes isbn and will make the request for the book
+@app.route('/request')
+def request_class():
+        isbn = request.args.get('book')
+        print(isbn)
+        return isbn
