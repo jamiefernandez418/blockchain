@@ -27,12 +27,9 @@ def hello_world():
         #Prints every book inside index. 
         for isbn in books:
                 print(isbn)
-                #print(books[isbn])
                 print(books[isbn].getAuthor())
 
        
-     
-
         #print(book.getISBN())
         print("Hello terminal test")
         return render_template('index.html', books= books)
