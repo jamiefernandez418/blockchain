@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Welcome to the Bookshelf</title>
+<body>
+    <h1>Welcome to Bookshelf</h1>
+    <ul>
+    {% for isbn in books %}
+        <li>{{books[isbn].getTitle()}}</li>
+    {% endfor %}
+    </ul>
+
+</body>

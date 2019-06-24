@@ -8,6 +8,7 @@ class Book:
     The Base Book Class
     '''
 
+
     def __init__(self, title, author, genre, isbn, uid):
         self.__bookTitle = title
         self.__bookISBN = isbn
@@ -38,7 +39,15 @@ class Book:
 
     # Returns the ISBN
     def getISBN(self):
-        print(self.__bookISBN)
+        return self.__bookISBN
+
+    # Returns Title
+    def getTitle(self):
+        return self.__bookTitle
+
+    # Returns Author
+    def getAuthor(self):
+        return self.__bookAuthor
 
     # Return the Book's BlockChain Transaction History
     def getBookBlockChain(self):
