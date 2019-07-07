@@ -5,4 +5,4 @@ class User():
             self.activate=active
 
 
-        is_authenticated(
+        

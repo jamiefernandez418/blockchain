@@ -37,7 +37,7 @@ def index():
         
                 #print(book.getISBN())
                 print("Hello terminal test")
-                return render_template('index.html', books= books)
+                return render_template('index.html', books= books,  username= session['username'])
 
         return redirect(url_for('login'))  
 #Takes isbn and will make the request for the book
