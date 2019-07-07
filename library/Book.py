@@ -1,6 +1,6 @@
 import hashlib
 import json
-import BChain
+from . import BChain
 
 
 class Book:
