@@ -5,7 +5,7 @@ import os
 from . import db 
 app= Flask(__name__)
 app.secret_key = os.urandom(16)
-print(app.secret_key)
+
 @app.route('/')
 def index():
         if 'username' in session:
@@ -41,12 +41,13 @@ def index():
 
         return redirect(url_for('login'))  
 #Takes isbn and will make the request for the book
-@app.route('/request')
+@app.route('/request', methods=['GET', 'POST'])
 def request_class():
-        isbn = request.args.get('book')
-        print(isbn)
+        if request.method =='GET':
+                isbn = request.args.get('book')
+                print(isbn)
 
-        return isbn 
+                return isbn 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
         if request.method=='POST':
