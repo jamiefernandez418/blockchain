@@ -46,14 +46,23 @@ def request_class():
         if request.method =='GET':
                 isbn = request.args.get('book')
                 print(isbn)
-
                 return isbn 
+                
 @app.route('/login', methods=['GET', 'POST'])
 def login():
         if request.method=='POST':
                 session['username'] = request.form['username']
-                return redirect(url_for('index'))
+                #Add db code
+                return redirect(url_for('index'))  
         return render_template('login.html')
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+        if request.method=='GET':
+                session.clear()
+                #Add db code
+                return redirect(url_for('login')) 
+        
 
 @app.route('/profile')
 def profile():
