@@ -21,3 +21,19 @@ class RequestSystem:
     def requestBookInfo(self, isbn):
         val = hash(isbn)
         return self.__Books[val]
+
+
+    def createrequest(self):
+
+        tx_data = request.get_json()
+        required_fields = ["author", "bookName", "requestCreator"]
+        for field in required_fields:
+            if not tx_data.get(field):
+                return "Invlaid transaction data", 404
+
+        tx_data["timestamp"] = time.time()
+
+
+        transaction.new_transaction(tx_data)
+
+        return "Success", 201

@@ -1,6 +1,10 @@
 import hashlib
 import json
 import BChain
+import RequestSystem
+import random
+import Transaction
+import POW
 
 
 class Book:
@@ -24,6 +28,16 @@ class Book:
             self.__bookGenre = ', '.join(genre)
         else:
             self.__bookGenre = genre[0]
+
+        self.unconfirmed_transactions = []
+        self.BlockChain = []
+        self.requestinfo = {
+            "name": "",
+            "isbn": "",
+            "requestidval": 0
+        }
+
+        senderID = 0
 
     # Returns all of the Books Information
     def getBookInformation(self):
@@ -61,3 +75,37 @@ class Book:
 
     def __str__(self):
         return self.__bookTitle + '-' + self.__bookAuthor + '-' + self.__bookGenre + '-' + self.__bookISBN + '-' + self.__bookUID
+
+
+    def setRequestId(self):
+        id= random(6)
+        return id
+
+    def request(self, username, isbn):
+        requestID = self.setRequestId()
+        if(self.requestinfo("name") == ''):
+            self.requestinfo(username, isbn)
+            self.unconfirmed_transactions.append(self.requestinfo)
+
+        if(self.requestinfo("name") == username):
+            User.getUser(username).requestID = requestID
+            return "The request was generated here is your Request ID: " + requestID
+
+        else:
+            return "fail"
+
+
+    def requestIDpublish(self, requestid, name):
+        if(name == self.requestinfo("name")):
+            self.requestinfo("requestidpval").set(requestid)
+            self.unconfirmed_transactions.append(self.requestinfo)
+            return "Success"
+        else:
+            return "fail"
+
+
+
+    def getRequestInfo(self):
+        return self.requestinfo
+
+

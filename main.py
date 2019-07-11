@@ -20,6 +20,7 @@ def main():
     GenesisBlock = Block.Block('0', book1)
     SecondBlock = Block.Block(GenesisBlock.getBlockHash(), book2)
 
+
     # Addition of a Block without a Previous Hash of 0
     print('Invalid entry of a non-Genesis Block:')
     myBlockChain.addValidBlock(SecondBlock)
@@ -29,6 +30,11 @@ def main():
     BadBlock = Block.Block('asd45234123512341123412362346', book3)
     print('Entry of Valid Block:')
     myBlockChain.addValidBlock(GenesisBlock)
+    print("")
+    print("THIS IS TRANSACTION DATA")
+    print(GenesisBlock.getTransactionData())
+
+
 
     print('\nAttempt to Add invalid Block to Chain')
     myBlockChain.addValidBlock(BadBlock)

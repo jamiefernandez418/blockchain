@@ -12,11 +12,13 @@ class Block:
     def __init__(self, prevHash, blockData):
         self.__previousHash = prevHash
         self.__blockData = blockData
-        self.__blockHash = self.setBlockHash256(
-            self.__previousHash, str(self.__blockData))
+        self.__blockHash = self.setBlockHash256(self.__previousHash, str(self.__blockData))
         # TODO: Create a system generated Timestamp based on the linux EPOCH
         # TODO: Look into Possibly using the Timestamp as a means of validation for adding to the chain
         # SystemGenerated TimeStamp
+        self.ownerinfo = {
+            "name": ""
+        }
 
     # Returns the Previous Hash that is stored on the current Block
     def getPreviousHash(self):

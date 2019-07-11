@@ -101,3 +101,6 @@ class BlockChain:
                 print('Invalid Block prohibited from being added to chain. Rework your PoW')
         else:
             print('Block was not added. This BlockChain is corrupted.')
+
+    def last_block(self):
+        return self.__theChain[-1]

@@ -6,7 +6,7 @@ import Book
 import hashlib
 import json
 
-class Mining:
+class ProofOfWork:
     """
     def proof_of_work(self, block):
 
@@ -38,9 +38,13 @@ class Mining:
             """
             Simple Proof of Work Algorithm:
 
+            Function that get the requestID and  to get a hash
+            that satisfies our difficulty criteria.
+
             :param last_proof: <int>
             :return: <int>
             """
+
 
             startingvalue = 0
             while self.valid_proof(block, startingvalue) is False:
@@ -51,7 +55,7 @@ class Mining:
     @staticmethod
     def valid_proof(block, startingvalue):
             """
-            Validates the Proof: Does hash(last_proof, proof) contain the requestID?
+            Validates the Proof: Does hash(starting value, block) contain the requestID in the beginning?
 
             """
 

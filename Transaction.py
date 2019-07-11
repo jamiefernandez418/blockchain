@@ -4,7 +4,7 @@ import BChain
 import RequestSystem
 import random
 
-def new_transaction(self, sender, recipient, requestID):
+def new_transaction(self, requestor, recipient, requestID, bookname):
     """
     Creates a new transaction to go into the next mined Block
     :param sender: Address of the Sender
@@ -13,24 +13,14 @@ def new_transaction(self, sender, recipient, requestID):
     :return: The index of the Block that will hold this transaction
     """
     self.current_transactions.append({
-        'Username': sender,
+        'Username': requestor,
         'Bookname': bookname,
         'requestID': requestID,
     })
-
-
-
     return BChain.last_block['index'] + 1
 
-def setRequestId(self):
-    BChain.Receiever = random(6)
 
 
-def request(self, isbn, username):
-    request_book_hash = RequestSystem.requestBookInfo(isbn)
-    setRequestId()
 
-def getRequestId(self):
-    return BChain.Receiever
 
 
