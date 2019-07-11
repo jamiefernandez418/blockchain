@@ -2,7 +2,7 @@ import random
 
 class User:
 
-	__requestID = {}
+	__requestId = {}
 	
     def __init__(self, firstName, lastName):
         self.__firstName = firstName
@@ -23,5 +23,13 @@ class User:
     	return self.__requestId.get(book)
     #ASSERT: Will return the corresponding request id when given the book as a parameter
     
-    def __addRequestID(self, book, id):
-    	self.__requestId[book] = id
+    def __addRequestId(self, book, id):
+    		if book in __requestId
+    			print ("Error: Unable to process request. A request already exists for " + book)
+    		else
+    			self.__requestId[book] = id
+    #Assert: If a request already exists for the book, print an error message else add request to dictionary
+    
+    def __removeRequestId(self, book):
+    	self.__requestId.pop(book)
+    #Assert: Used to remove book and corresponding request id for specified book.
